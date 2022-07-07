@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+"@adalzanabria/tailwindcss@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@adalzanabria/tailwindcss/-/tailwindcss-1.0.1.tgz#33b23d3250c99dd8ab6d0c8c5ba03c6728debafd"
+  integrity sha512-Z/fnMgjjqz9YTILeU6dOuBuqdJtIRDB/LigdHpg2lE2KmqfGbDQW2lXgekbfptGO6TozH6ebfKwSZrF+vTlU8g==
+  dependencies:
+    tailwindcss "^3.1.2"
+
 "@ampproject/remapping@^2.1.0":
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@ampproject/remapping/-/remapping-2.2.0.tgz#56c133824780de3174aed5ab6834f3026790154d"
@@ -1749,7 +1756,7 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
-tailwindcss@^3.1.4:
+tailwindcss@^3.1.2, tailwindcss@^3.1.4:
   version "3.1.4"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.1.4.tgz#64b09059805505902139fa805d97046080bd90b9"
   integrity sha512-NrxbFV4tYsga/hpWbRyUfIaBrNMXDxx5BsHgBS4v5tlyjf+sDsgBg5m9OxjrXIqAS/uR9kicxLKP+bEHI7BSeQ==
