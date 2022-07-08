@@ -11,7 +11,8 @@
   "dependencies": {
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-spinners": "^0.13.3"
   },
   "devDependencies": {
     "@adalzanabria/tailwindcss": "^1.0.1",
