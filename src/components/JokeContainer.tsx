@@ -1,9 +1,14 @@
 import { MouseEvent } from 'react';
+import { ArrowCounterClockwise } from 'phosphor-react';
 
 export const JokeContainer = () => {
   const reloadPage = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     window.location.reload();
+  };
+
+  const fetchJoke = (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
   };
 
   return (
@@ -16,18 +21,25 @@ export const JokeContainer = () => {
           with every female member of your family.
         </span>
       </div>
-      <span className='font-bold text-2xl mt-4'>Did you like it?</span>
-      <span className='font-bold text-xl text-center'>
+      <span className='font-bold text-2xl mt-6'>Did you like it?</span>
+      <span className='font-bold text-xl text-center mt-2'>
         Well, you can always{' '}
-        <button onClick={reloadPage} className='text-blue'>
+        <button onClick={reloadPage} className='text-blue focus:outline-none focus:underline hover:underline'>
           reload the page
         </button>{' '}
         or click{' '}
-        <a href='' className='text-blue'>
+        <button className='text-blue focus:outline-none focus:underline hover:underline'>
           this button below
-        </a>{' '}
+        </button>{' '}
         for a brand new joke!
       </span>
+
+      <button
+        onClick={fetchJoke}
+        className='mt-6 bg-blue rounded-2xl p-6 text-base hover:brightness-[.85] transition duration-100 focus:ring focus:ring-red focus:outline-none'
+      >
+        <ArrowCounterClockwise size={32} weight='bold' />
+      </button>
     </div>
   );
 };
