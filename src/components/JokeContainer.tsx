@@ -1,18 +1,49 @@
-import { MouseEvent, useState } from 'react';
+import { MouseEvent, useEffect, useState } from 'react';
 import { ArrowCounterClockwise } from 'phosphor-react';
 import { MoonLoader } from 'react-spinners';
+import axios from 'axios';
+
+interface IJokeData {
+  iconUrl: string;
+  value: string;
+  id: string;
+  url: string;
+}
+
+interface IJoke {
+  value: string;
+}
 
 export const JokeContainer = () => {
   let [loading, setLoading] = useState(true);
+  let [joke, setJoke] = useState<IJoke>();
 
   const reloadPage = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     window.location.reload();
   };
 
-  const fetchJoke = (event: MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
+  const fetchJoke = async (event?: MouseEvent<HTMLButtonElement>) => {
+    setLoading(true);
+
+    if (event) {
+      event.preventDefault();
+    }
+
+    const jokeData = await axios.get<IJokeData>(
+      'https://api.chucknorris.io/jokes/random',
+    );
+
+    setJoke({
+      value: jokeData.data.value,
+    });
+
+    setLoading(false);
   };
+
+  useEffect(() => {
+    fetchJoke();
+  }, []);
 
   return (
     <div className='flex flex-col justify-center items-center mt-6 px-4'>
@@ -23,11 +54,7 @@ export const JokeContainer = () => {
         {loading ? (
           <MoonLoader color='#89b4fa' size={36} />
         ) : (
-          <span className='text-subtext0'>
-            You better watch out, you better not cry; you better not pout, I'm
-            telling you why - Chuck Norris is coming to kill you. And have sex
-            with every female member of your family.
-          </span>
+          <span className='text-subtext0'>{joke?.value}</span>
         )}
       </div>
       <span className='font-bold text-subtext1 text-2xl mt-6'>
