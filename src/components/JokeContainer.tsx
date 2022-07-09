@@ -1,5 +1,6 @@
 import { MouseEvent, useEffect, useState } from 'react';
 import { ArrowCounterClockwise } from 'phosphor-react';
+import { Joke } from './Joke';
 import { MoonLoader } from 'react-spinners';
 import axios from 'axios';
 
@@ -10,13 +11,9 @@ interface IJokeData {
   url: string;
 }
 
-interface IJoke {
-  value: string;
-}
-
 export const JokeContainer = () => {
   let [loading, setLoading] = useState(true);
-  let [joke, setJoke] = useState<IJoke>();
+  let [joke, setJoke] = useState('');
 
   const reloadPage = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -34,10 +31,7 @@ export const JokeContainer = () => {
       'https://api.chucknorris.io/jokes/random',
     );
 
-    setJoke({
-      value: jokeData.data.value,
-    });
-
+    setJoke(jokeData.data.value);
     setLoading(false);
   };
 
@@ -54,7 +48,7 @@ export const JokeContainer = () => {
         {loading ? (
           <MoonLoader color='#89b4fa' size={36} />
         ) : (
-          <span className='text-subtext0'>{joke?.value}</span>
+          <Joke joke={joke} />
         )}
       </div>
       <span className='font-bold text-subtext1 text-2xl mt-6'>
